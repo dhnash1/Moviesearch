@@ -1,25 +1,33 @@
 $(document).ready(function(){
 
-    var search = function(){
-      $.ajax({
-        url: searcho,
-        dataType:'JSON',
-        success: function(data){
-          console.log("heres what I found:", data);
-        }//end success function
-      });//end AJAX
-    };//end search func
+$(document).on('click', '#button', function(){
+  console.log('ya clicked it');
+  if (!$('#searchBox').val() ) {
+    alert("Input something!");
+  }else{
+  var input = $('#searchBox').val();
+  var website = "http://www.omdbapi.com/?s=" + input;
+  $.ajax({
+    url:website,
+    dataType:'JSON',
+    success: function(data){
+      console.log('found', data.Search);
+      thing1(data.Search);
 
-    $('#button').on('click', function(){
-      //assign searchBox value to var
-      console.log('clicked');
-      var title = $('#searchBox').val();
-      var searcho = 'http://www.omdbapi.com/?s=' + title;
+      }//end success
+    });//end ajax
+}
+var thing1 = function(rango){
+  console.log("Hey!", rango);
+  $('#movieDiv').empty();
+  for (var i = 0; i < rango.length; i++) {
 
 
-    });//end buttonclick
-    var printo = function(dayta){
-      for (var i = 0; i < dayta.length; i++) {
-      console.log("title:",  dayta[i].title );
-    }//end forloop
+    $('#movieDiv').append('<h1>' + rango[i].Title + '</h1>');
+    $('#movieDiv').append("<img src = '" + rango[i].Poster + "'/>");
+    $('#movieDiv').append("<p class='year'>" + rango[i].Year + "</p>");
+
+}
+};//endthing1
+  });//end on click
 });//end docReady
