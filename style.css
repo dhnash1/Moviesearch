@@ -1,0 +1,26 @@
+body{
+  background-color: teal;
+
+}
+.movie{
+  display: inline-block;
+  border: solid black 5px;
+  width: 340px;
+  margin: 10px 10px;
+  background-color: darkgrey;
+  padding: 10px;
+}
+.year{
+  display: block;
+  width: 30%;
+  margin: 10px auto;
+}
+
+h2, h1, img, input, button {
+  display:block;
+  width: 30%;
+  margin:0px auto;
+}
+input{
+  text-align: center;
+}

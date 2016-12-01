@@ -4,6 +4,8 @@ $(document).on('click', '#button', function(){
   console.log('ya clicked it');
   if (!$('#searchBox').val() ) {
     alert("Input something!");
+  }else if ($('#searchBox').val() == "__gita__") {
+    easteregg();
   }else{
   var input = $('#searchBox').val();
   var website = "http://www.omdbapi.com/?s=" + input;
@@ -22,12 +24,15 @@ var thing1 = function(rango){
   $('#movieDiv').empty();
   for (var i = 0; i < rango.length; i++) {
 
+      $('#movieDiv').append("<div id='inDiv" + [i] + "' class='movie'></div>");
+      $('#inDiv' + [i]).append('<h1>' + rango[i].Title + '</h1>');
+      $('#inDiv' + [i]).append("<img src = '" + rango[i].Poster + "'/>");
+      $('#inDiv' + [i]).append("<p class='year'>" + rango[i].Year + "</p>");
 
-    $('#movieDiv').append('<h1>' + rango[i].Title + '</h1>');
-    $('#movieDiv').append("<img src = '" + rango[i].Poster + "'/>");
-    $('#movieDiv').append("<p class='year'>" + rango[i].Year + "</p>");
-
-}
-};//endthing1
+      }
+    };//endthing1
   });//end on click
+  function easteregg(){
+    window.open("http://d.facdn.net/art/anonymousguitar/1480568020/1480568020.anonymousguitar_eegg.png");
+  }
 });//end docReady
