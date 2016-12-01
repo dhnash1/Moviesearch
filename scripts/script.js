@@ -1,25 +1,26 @@
 $(document).ready(function(){
-    var printo = function(dayta){
-      for (var i = 0; i < dayta.length; i++) {
-      console.log("title:",  dayta[i].title );
-    }//end forloop
-  };//end printfunc
-    var search = function(){
-      $.ajax({
-        url: searcho,
-        dataType:'JSON',
-        success: function(data){
-          console.log("heres what I found:", data);
-        }//end success function
-      });//end AJAX
-    };//end search func
 
-    $('#button').on('click', function(){
-      //assign searchBox value to var
-      console.log('clicked');
-      var title = $('#searchBox').val();
-      var searcho = 'http://www.omdbapi.com/?s=' + title;
-      search();
+$(document).on('click', '#button', function(){
+  console.log('ya clicked it');
+  var input = $('#searchBox').val();
+  var website = "http://www.omdbapi.com/?s=" + input;
+  $.ajax({
+    url:website,
+    dataType:'JSON',
+    success: function(data){
+      console.log('found', data);
+      thing1(data);
+      }//end success
+    });//end ajax
 
-    });//end buttonclick
+var thing1 = function(x){
+  console.log("Hey!", x);
+
+
+
+};//endthing1
+
+
+
+  });//end on click
 });//end docReady
