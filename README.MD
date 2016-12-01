@@ -1,4 +1,4 @@
-[]Get input
-[] search database with input
-[] return results
-[] display results on dom
+[x]Get input
+[x] search database with input
+[x] return results
+[x] display results on dom
