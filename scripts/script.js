@@ -1,9 +1,5 @@
 $(document).ready(function(){
-    var printo = function(dayta){
-      for (var i = 0; i < dayta.length; i++) {
-      console.log("title:",  dayta[i].title );
-    }//end forloop
-  };//end printfunc
+
     var search = function(){
       $.ajax({
         url: searcho,
@@ -19,7 +15,11 @@ $(document).ready(function(){
       console.log('clicked');
       var title = $('#searchBox').val();
       var searcho = 'http://www.omdbapi.com/?s=' + title;
-      search();
+
 
     });//end buttonclick
+    var printo = function(dayta){
+      for (var i = 0; i < dayta.length; i++) {
+      console.log("title:",  dayta[i].title );
+    }//end forloop
 });//end docReady
