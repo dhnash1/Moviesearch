@@ -26,9 +26,12 @@ var thing1 = function(rango){
 
       $('#movieDiv').append("<div id='inDiv" + [i] + "' class='movie'></div>");
       $('#inDiv' + [i]).append('<h1>' + rango[i].Title + '</h1>');
-      $('#inDiv' + [i]).append("<img src = '" + rango[i].Poster + "'/>");
       $('#inDiv' + [i]).append("<p class='year'>" + rango[i].Year + "</p>");
-
+      if( rango[ i ].Poster == "N/A"){
+        $( '#inDiv' + [i] ).append("<p>No Image found!</p>");
+      }else{
+      $('#inDiv' + [i]).append("<img src = '" + rango[i].Poster + "'/>");
+}
       }
     };//endthing1
   });//end on click
